@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Create rules</title>
+</head>
+<body>
+	<button id="btn">点我生成结构</button>
+</body>
+<script>
+	var Name=["11",223,33]
+	
+	var oBtn=document.getElementById('btn')
+	oBtn.onclick=function(){
+		var html='';
+		html+='<ul>';
+		for(var i=0;i<Name.length;i++){
+			html+=`<li>${Name[i]}</li>`
+		}
+		html+='</ul>'
+		document.body.innerHTML=html;
+	}
+
+</script>
+</html>
