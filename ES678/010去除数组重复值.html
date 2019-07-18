@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Create rules</title>
+</head>
+<body>
+	1.写一个函数(indexof)
+	2.对象属性唯一
+	3.set值唯一
+</body>
+<script>
+	let arr=[1,3,7,2,47,22,21,3,2,57,47]
+	/*
+	function uniquArr1(arr){
+		let result=[];
+		for(let i=0, len=arr.length; i<len;i++){
+			if(result.indexOf(arr[i])== -1){
+				result.push(arr[i])
+			}
+		}
+		return result;
+	}
+	console.log(uniquArr1(arr));
+	*/
+
+	/*
+	function uniqueArr2(arr){
+		var result=[]
+		var obj={};
+		for(let i=0, len=arr.length; i<len;i++){
+			obj[arr[i]]="";
+		}
+		for(attr in obj){
+			result.push(attr*1)
+		}
+		return result
+	}
+	console.log(uniqueArr2(arr));
+	*/
+
+	function uniqueArr3(arr){
+		// var result=[];
+		const s=new Set(arr)
+		let result=[...s]
+		return result;
+	}
+	console.log(uniqueArr3(arr));
+</script>
+</html>
