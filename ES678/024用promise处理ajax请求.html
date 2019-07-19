@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Create rules</title>
+</head>
+<body>
+	1.Ajax $.get('url',回调函数) Ajax请求 服务器  同步任务 主线程 任务队列 事件循环
+	$.get('')
+</body>
+<script src="jquery/jquery-1.12.4.js"></script>
+<script>
+	let getDataPromise = (url)=> new Promise((resolve,reject)=>{
+		$.ajax({
+			url:url,
+			type:type,
+			success:(data)=>{
+				resolve(data)
+			},
+			error:(jqXhr,)	
+		})	
+	});
+</script>
+</html>

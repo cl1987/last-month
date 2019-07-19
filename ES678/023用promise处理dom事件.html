@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Create rules</title>
+</head>
+<body>
+	1.需要生成promise对象的函数
+	2.用函数生成promise
+</body>
+<script>
+	const getImgPromise =(src)=> new Promise((resolve,reject)=>{
+			var img = new Image();
+			img.onload=function(){
+				resolve(src)
+			}
+			img.onerror=function(){
+				reject(src)
+			}
+			img.src=src;
+		})
+
+	getImgPromise('image/gratisography-unhappy-bunny (1).jpg')
+	.then(src=>{
+		console.log(src+'loadImg success!!')
+	},src=>{
+		console.log(src+'loadImg error!!')
+	})
+</script>
+</html>

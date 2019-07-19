@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Create rules</title>
+</head>
+<body>
+	<!-- 为什么定时器是window在调用定时器 -->
+</body>
+<script>
+		//function定义的函数
+		/*
+	    function Timer(id){
+	        this.id = id;
+	        console.log(this.id)       
+	        setTimeout(function(){
+	            console.log(this,this.id);//window 99
+	        },100)  
+	    }
+	    var id = 99;
+	    let t = new Timer(100);
+	    */
+
+	    //箭头函数
+	    
+	    function Timer(id){
+	    	this.id=id;
+	    	console.log(this.id)
+	    	setTimeout(()=>{//定时器在定义的时候属于Timer这个实例
+	    		console.log(this,"this.id",this.id)
+	    	},100)
+	    }
+	    var id = 222;
+	    let n = new Timer(80);
+	   
+</script>
+</html>
