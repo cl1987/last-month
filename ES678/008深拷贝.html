@@ -79,16 +79,20 @@
 		}else if(type == 'object'){
 			result={};
 		}else{
-			return data
+			return data//表示只有是数组或者对象的时候程序才会往下走 记着这里是return！！！！！！！
 		}
 
 		for(let key in data){
 			let val=data[key]
+			// console.log("11111111",val)
 			let valType =getDataType(val)
+			// console.log("222222",valType)
 			if( valType == "array" || valType == "object"){
 				result[key]=deepCopy(val)
+				// console.log(result[key])
 			}else{
 				result[key]=val
+				// console.log(result[key])
 			}
 		}
 		return result;
@@ -96,7 +100,7 @@
 	
 
 
-	console.log(obj)
-	console.log(obj1)
+	// console.log(obj)
+	// console.log(obj1)
 </script>
 </html>

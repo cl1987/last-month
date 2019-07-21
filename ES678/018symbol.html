@@ -30,8 +30,13 @@
     */
     // console.log(Reflect.ownKeys(obj))
     let keys = Reflect.ownKeys(obj)
+    // console.log(obj)
+    // console.log(keys)//keys是一个数组
     for(let key in keys){
-        console.log(obj[keys[key]])//这里为什么不是key呢？
+        // console.log(key)//key是下标
+        console.log(keys[key])//拿到数组的每一项
+        console.log(obj[key])//直接拿是拿不到对象上的每一项的，先拿数组的每一项，然后通过数组的每一项再去拿对象上的每一项
+        console.log(obj[keys[key]])//这里为什么不是keys[key]呢？  
     }
 </script>
 </html>

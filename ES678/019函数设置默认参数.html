@@ -15,7 +15,7 @@
         var age = age || 18
         console.log(name,age)
     }
-    show()
+    show("jeoy",12)
     */
    /*
    function show(name='Tom',age=18){
@@ -38,10 +38,14 @@
    i = 5
    show()//6
    */
-  function request(url,{method='get',data='id=000'}={}){
+  function request(url,{method='get',data='id=000'}={}){//此处为结构解析的用法
     console.log(url,method,data)
   }
   request('http://api.kuazhu.com',{method:'post',data:'id=123'})
   request('http://api.kuazhu.com')
+  function aaa(url,{name="tom",sex="male"}={}){
+    console.log(name,sex)
+  }
+  aaa('url',{name:"liucheng",sex:"female"})
 </script>
 </html>

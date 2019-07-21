@@ -6,23 +6,26 @@
 </head>
 <body>
 	<!-- 为什么定时器是window在调用定时器 -->
+	<!-- 因为window上面有setTimeout这个方法 -->
 </body>
 <script>
 		//function定义的函数
-		/*
+	
 	    function Timer(id){
 	        this.id = id;
-	        console.log(this.id)       
+	        // console.log(this.id)       
 	        setTimeout(function(){
 	            console.log(this,this.id);//window 99
-	        },100)  
+	        },100)//此句话表明在100ms后将这个function放在任务队列中去，等到主线程的任务全部结束了，然后再将这个function放到主线程中去执行 
 	    }
 	    var id = 99;
 	    let t = new Timer(100);
-	    */
+	    // let t=Timer(100);
+	    console.log(t);
+	 
 
 	    //箭头函数
-	    
+	    /*
 	    function Timer(id){
 	    	this.id=id;
 	    	console.log(this.id)
@@ -32,6 +35,7 @@
 	    }
 	    var id = 222;
 	    let n = new Timer(80);
+	    */
 	   
 </script>
 </html>
