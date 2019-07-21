@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Create rules</title>
+</head>
+<body>
+	
+</body>
+<script>
+	const getImgPromise =(src)=> new Promise((resolve,reject)=>{
+		var img = new Image();
+		img.onload=function(){
+			resolve(src)
+		}
+		img.onerror=function(){
+			reject(src)
+		}
+		img.src=src;
+	})
+	let promises=['image/1.jpg','image/1.jpg','image/1.jpg','image/1.jpg'].map(url=>getImgPromise(url))
+	let p=Promise.all(promises);
+	p
+	.then(data=>{
+		console.log(data)
+	})
+	.catch(err=>{
+		console.log(err)
+	})
+</script>
+</html>
