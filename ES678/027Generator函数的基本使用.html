@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Create rules</title>
+</head>
+<body>
+	
+</body>
+<script>
+	function * generator(){
+		console.log('print data 1')
+		yield "status1"
+		console.log('print data 2')
+		yield "status2"
+		// console.log("print data 3")
+		return "done done done"
+	}
+	const p=generator()
+
+
+
+	console.log(p.next())
+	console.log(p.next())
+	console.log(p.next())
+	
+</script>
+</html>

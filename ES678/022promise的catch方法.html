@@ -1,28 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<title>Create rules</title>
+    <meta charset="UTF-8">
+    <title>027-Promise的catch方法.html</title>
 </head>
 <body>
-	
+    
 </body>
 <script>
-	let promise = new Promise((resolve,reject)=>{
-		setTimeout(function(){
-			resolve('ok')
-		},4)
-	})
-	promise
-	.then(data=>{
-		console.log(data);
-		
-	})
-	p1.then(data=>{
-		console.log("data",data)
-		console.log("p1",p1)
-		console.log("p2",p2)
-		console.log("p1==p2",p1==p2)
-	})
+    const promise = new Promise((resolve,reject)=>{
+        setTimeout(()=>{
+            // resolve('ok')
+            reject('error')
+        },0)
+    })
+    
+    promise
+    .then(data=>{
+        console.log('success data:',data)
+    })
+    .catch(err=>{
+        console.log('error data:',err)
+    })
 </script>
 </html>

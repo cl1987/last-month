@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Create rules</title>
+</head>
+<body>
+	
+</body>
+<script>
+	/*
+	//await只能放到async函数体中
+	function fn(){
+		await 'hello';//await is only valid in async function
+	}
+	*/
+
+	/*
+	//await表示后面的处理需要等待,如果不是 Promise 对象，就直接返回对应的值
+	async function fn(){
+		let data1 = await "hello";
+		console.log(data1)
+	}
+	fn()
+	*/
+	let promise = new Promise((resolve,reject)=>{
+		setTimeout(()=>{
+			resolve('data');
+		},200)
+	})
+</script>
+</html>
