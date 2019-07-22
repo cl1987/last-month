@@ -10,15 +10,35 @@
 </body>
 <script src="jquery/jquery-1.12.4.js"></script>
 <script>
-	let getDataPromise = (url)=> new Promise((resolve,reject)=>{
+	//1.需要生成promise对象的函数
+	let getDataPromise = (url,type='get',data='')=> new Promise((resolve,reject)=>{
+		//处理异步请求
 		$.ajax({
-			url:   url,
+			url:url,
 			type:type,
+			data:data,
 			success:(data)=>{
 				resolve(data)
 			},
-			error:(jqXhr,)	
+			error:(jqXhr,statusMsg)=>{
+				reject(statusMsg)
+			}	
 		})	
 	});
+
+	//2.用函数生成promise
+	getDataPromise('https://api.github.com/users/kuazhu')
+	.then(data=>{
+		return getDataPromise(data.followers_url)
+	})
+	.then(data=>{
+		return getDataPromise(data[0].followers_url)
+	})
+	.then(data=>{
+		console.log(data)
+	})
+	.catch(err=>{
+		console.log(err);
+	})
 </script>
 </html>

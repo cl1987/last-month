@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Create rules</title>
+</head>
+<body>
+	class constructor sayName(){} static extends super 
+</body>
+<script>
+	class Person{
+		constructor(name,age){
+			this.name=name
+			this.age=age
+		}
+		sayName(){
+			console.log('I am '+ this.name);
+		}
+		sayAge(){
+			console.log('I am '+ this.age+ ' years old')
+		}
+		static sayHi(){
+			console.log("hey guys")
+		}
+	}
+	const person = new Person("jack",18)
+	console.log(person);
+	person.sayName()
+	person.sayAge()
+	Person.sayHi()
+
+	class Student extends Person{
+		constructor(name,age,major){
+			super(name,age)
+			this.major=major
+		}
+		sayMajor(){
+			console.log('My major is  '+ this.major)
+		}
+	}
+	const student = new Student("liucheng",18,"Landscape")
+	console.log(student);
+	student.sayName()
+	student.sayAge()
+	student.sayMajor()
+	Student.sayHi() 
+</script>
+</html>
