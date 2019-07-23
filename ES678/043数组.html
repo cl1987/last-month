@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Create rules</title>
+</head>
+<body>
+	Array.from find findIndex includes
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+</body>
+<script>
+	const likeArr ={
+		0:"data1",
+		1:"data2",
+		length:2
+	}
+	console.log("likeArr",likeArr)
+	console.log("Array.from(likeArr)",Array.from(likeArr))
+
+	var doms=document.getElementsByTagName('div');
+	console.log('doms',doms)
+	console.log('Array.from(doms)',Array.from(doms))
+
+	function fn(){
+		console.log(arguments);
+		console.log(Array.from(arguments));
+	}
+	fn(11,22)
+
+
+	let arr1 = [11,22,33,44,55]
+	console.log(arr1.find(n=>n>12))
+	console.log(arr1.find(n=>n>56))
+	console.log(arr1.findIndex(n=>n>56))
+	console.log(arr1.findIndex(n=>n>12))
+	console.log(arr1.includes(44))
+	console.log(arr1.includes(27))
+</script>
+</html>

@@ -12,19 +12,20 @@
 	const getImgPromise =(src)=> new Promise((resolve,reject)=>{
 			var img = new Image();
 			img.onload=function(){
-				resolve(src)
+				resolve(src+"img loaded success")
 			}
 			img.onerror=function(){
-				reject(src)
+				reject(src+"img loaded error")
 			}
 			img.src=src;
 		})
 								
 	getImgPromise('image/gratisography-unhappy-bunny (1).jpg')
-	.then(src=>{
-		console.log(src+'loadImg success!!')
-	},src=>{
-		console.log(src+'loadImg error!!')
+	.then(data=>{
+		console.log(data)
+	})
+	.catch(err=>{
+		console.log(err)
 	})
 </script>
 </html>
