@@ -1,11 +1,31 @@
 const http = require('http');
-const fs = require('fs');
 const path = require('path');
-const url = require('url')
-const mime = require('./mime.json')
+const fs = require('fs');
 
 
+const server = http.createServer((req,res)=>{
+	//req == request 是可读流
+	//res == response 是可写流
+	// res.write('hello');
+	// res.end('good');
+	const filePath = path.normalize(__dirname + req.url)
+	fs.readFile(filePath,(err,data)=>{
+		if(err){
+			res.setHeader('Content-Type','text/html;charset=UTF-8')
+			res.end('<h1>请求出错了</h1>')	
+		}else{
+			res.setHeader('Content-Type','text/html;charset=UTF-8')
+			res.end(data)
+		}
+	})
 
+})
+
+server.listen(3000,'127.0.0.1',()=>{
+	console.log('server is running at http://127.0.0.1:3000')
+})
+
+/*
 //每一次请求都会执行createServer方法中的函数
 const server = http.createServer((req,res)=>{
 	console.log('url',req.url);
@@ -33,3 +53,4 @@ const server = http.createServer((req,res)=>{
 server.listen(3000,'127.0.0.1',()=>{
 	console.log('server is running at http://127.0.0.1:3000')
 })
+*/
