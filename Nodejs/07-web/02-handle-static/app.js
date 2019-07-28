@@ -1,6 +1,7 @@
 const http = require('http');
 const path = require('path');
 const fs = require('fs');
+const mime = require('./mime.json')
 
 
 const server = http.createServer((req,res)=>{
@@ -8,13 +9,17 @@ const server = http.createServer((req,res)=>{
 	//res == response 是可写流
 	// res.write('hello');
 	// res.end('good');
-	const filePath = path.normalize(__dirname + req.url)
+	const filePath = path.normalize(__dirname + '/static/' + req.url)
 	fs.readFile(filePath,(err,data)=>{
 		if(err){
 			res.setHeader('Content-Type','text/html;charset=UTF-8')
+			res.statusCode=404;
 			res.end('<h1>请求出错了</h1>')	
 		}else{
-			res.setHeader('Content-Type','text/html;charset=UTF-8')
+			//1.根据拓展名设置mime类型
+			const extname = path.extname(filePath)
+			const mimeType = mime[extname] || 'text/plain'
+			res.setHeader('Content-Type',mimeType+';charset=UTF-8')
 			res.end(data)
 		}
 	})
