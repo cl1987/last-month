@@ -4,6 +4,8 @@ const url = require('url');
 const fs = require('fs');
 const mime = require('./mime.json')
 const { get } = require('./Model/item.js')
+const swig = require('swig')
+const quertstring = require('quertstring')
 
 
 const server = http.createServer((req,res)=>{
@@ -27,21 +29,29 @@ const server = http.createServer((req,res)=>{
 			console.log(data)
 			// 引入模板
 			const filePath = path.normalize(__dirname + '/static/index.html' )
-			fs.readFile(filePath,(err,data)=>{
-				if(err){
-					res.setHeader('Content-Type','text/html;charset=UTF-8')
-					res.statusCode=404;
-					res.end('<h1>请求出错了</h1>')	
-				}else{
-					res.setHeader('Content-Type','text/html;charset=UTF-8')
-					res.end(data)
-				}
+			const template = swig.compileFile(filePath)
+			const html = template({
+				data:data
 			})
+			res.setHeader('Content-Type','text/html;charset=UTF-8')
+			res.end(html)
+		})
+		.catch(err=>{
+			res.setHeader('Content-Type','text/html;charset=UTF-8')
+			res.statusCode=404;
+			res.end('<h1>请求出错了</h1>')
 		})
 	}
 	//添加路由
 	else if(pathname == '/add'){
-		console.log("add.....")
+		const body="";
+		req.on('data',(chunk)=>{
+			body+=chunk;
+		})
+		req.on('end',()=>{
+			const query = quertstring.parse(body)
+		})
+
 		res.end(JSON.stringify({
 			code:0
 		}))
