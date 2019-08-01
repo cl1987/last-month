@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Create rules</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		body{
+			height: 6000px;
+		}
+	</style>
+</head>
+<body>
+	
+</body>
+<script>
+	function debounce(fn,delay){
+		var timer=null;
+		return function(){
+			clearTimeout(timer);
+			timer=setTimeout(fn,delay)
+		}	
+	}
+	window.onscroll=debounce(function(){
+		console.log(111);
+	},300)
+</script>
+</html>
