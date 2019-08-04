@@ -120,6 +120,7 @@ app.use((req,res,next)=>{
 app.use("/",require('./routes/index.js'))
 app.use("/user",require('./routes/user.js'))
 app.use("/admin",require('./routes/admin.js'))
+app.use("/category",require('./routes/category.js'))
 //————————————————————————————路由设置结束----------------------
 
 app.listen(port, () => console.log(`app listening on port ${port}!`))

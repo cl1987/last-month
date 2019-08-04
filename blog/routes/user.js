@@ -41,7 +41,11 @@ router.post('/register', (req, res) => {
                 })                  
             })
             .catch(err=>{
-                throw err
+                console.log("insert user:",err)
+                res.json({
+                    status:10,
+                    message:"服务器端错误,请稍后再试"
+                })
             })
         }
     })
