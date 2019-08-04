@@ -3,8 +3,13 @@ const path = require('path');
 const url = require('url');
 const fs = require('fs');
 const mime = require('./mime.json')
+<<<<<<< HEAD
 const { get,add } = require('./Model/item.js')
+=======
+const { get,add,del } = require('./Model/item.js')
+>>>>>>> 677407ee90955cfbfc981d1d326999c0201d940b
 const swig = require('swig')
+const querystring = require('querystring')
 
 
 const server = http.createServer((req,res)=>{
@@ -43,6 +48,7 @@ const server = http.createServer((req,res)=>{
 	}
 	//添加路由
 	else if(pathname == '/add'){
+<<<<<<< HEAD
 		//1.获取参数
 		let body=""
 		req.on('data',(chunk)=>{
@@ -55,7 +61,76 @@ const server = http.createServer((req,res)=>{
 			}))
 		})
 		
+=======
+		let body="";
+		//1.获取参数
+		req.on('data',(chunk)=>{
+			body += chunk;
+		})
+		req.on('end',()=>{
+			const query = querystring.parse(body)
+			//2.根据参数生成任务对象并且写入到文件中h
+			add(query.task)
+			.then(data=>{
+				 //3.如果写入成功,将新生成的任务对象返回到前端
+				 console.log(11111111111111111111111)
+				 res.end(JSON.stringify({
+				 	code:0,
+				 	message:'添加成功',
+				 	data:data
+				 })) 
+			})
+			.catch(err=>{
+				res.end(JSON.stringify({
+					code:1,
+				 	message:'添加失敗'
+				}))
+			})
+		})
 	}
+	else if(pathname == '/del'){
+		//1.获取参数
+		const id = parsedUrl.query.id
+		//2.根据参数删除任务对象并且更改文件
+		del(id)
+		.then(()=>{
+			//3.返回结果	
+			res.end(JSON.stringify({
+				code:0,
+				message:'删除成功'
+			}))
+
+		})
+		.catch(err=>{
+			res.end(JSON.stringify({
+				code:1,
+				message:'删除失败'
+			}))
+		})
+>>>>>>> 677407ee90955cfbfc981d1d326999c0201d940b
+	}
+	/*
+	 else if(pathname == "/del"){//get
+        //1.获取参数
+        const id = parsedUrl.query.id
+        //2.根据参数删除任务对象并且更改文件
+        del(id)
+        .then(()=>{
+            //3.返回结果
+            res.end(JSON.stringify({
+                code:0,
+                message:'删除成功'
+            }))            
+        })
+        .catch(err=>{
+            res.end(JSON.stringify({
+                code:1,
+                message:'删除失败'
+            }))                 
+        })
+
+    }
+    */
 	//静态资源处理
 	else{
 		const filePath = path.normalize(__dirname + '/static/' + req.url)

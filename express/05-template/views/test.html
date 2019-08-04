@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>{{title}}</title>
+</head>
+<body>
+
+	<h1>{{obj.name}}</h1>
+	{% if name ==='Peter' %}
+		<h1>hello {{ name }}</h1>	
+	{% endif %}
+	<ul>
+		{% for key,val in arr %}
+			<li>{{ key }} : {{ val }}</li>
+		{% endfor %}
+	</ul>
+	
+</body>
+</html>

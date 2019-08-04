@@ -5,7 +5,6 @@ const fs = require('fs');
 const mime = require('./mime.json')
 const { get } = require('./Model/item.js')
 const swig = require('swig')
-const quertstring = require('quertstring')
 
 
 const server = http.createServer((req,res)=>{
@@ -44,14 +43,7 @@ const server = http.createServer((req,res)=>{
 	}
 	//添加路由
 	else if(pathname == '/add'){
-		const body="";
-		req.on('data',(chunk)=>{
-			body+=chunk;
-		})
-		req.on('end',()=>{
-			const query = quertstring.parse(body)
-		})
-
+		console.log("add.....")
 		res.end(JSON.stringify({
 			code:0
 		}))
