@@ -3,7 +3,7 @@ const path = require('path');
 const url = require('url');
 const fs = require('fs');
 const mime = require('./mime.json')
-const { get } = require('./Model/item.js')
+const { get,add } = require('./Model/item.js')
 const swig = require('swig')
 
 
@@ -43,10 +43,18 @@ const server = http.createServer((req,res)=>{
 	}
 	//添加路由
 	else if(pathname == '/add'){
-		console.log("add.....")
-		res.end(JSON.stringify({
-			code:0
-		}))
+		//1.获取参数
+		let body=""
+		req.on('data',(chunk)=>{
+			body+=chunk
+		})
+		req.on('end',()=>{
+			const query=querystring.parse(body)
+			res.end(JSON.stringify({
+				code:0
+			}))
+		})
+		
 	}
 	//静态资源处理
 	else{

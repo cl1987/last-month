@@ -13,8 +13,11 @@ async function get(){
 	const arr = JSON.parse(data);
 	return arr
 }
-get()
+async function add(task){
+
+}
 
 module.exports = {
-	get
+	get,
+	add
 }
