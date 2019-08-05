@@ -51,7 +51,10 @@ router.get('/add', (req, res) => {
 })
 // 处理添加分类
 router.post('/add',(req,res)=>{
-	const {name,order}=req.body
+	let {name,order}=req.body
+    if(!order){
+        order=0
+    }
 	//同名验证
 	CategoryModel.findOne({name:name})
 	.then(category=>{
@@ -86,6 +89,95 @@ router.post('/add',(req,res)=>{
         })
 	})
 })
+//显示编辑分类
+router.get('/edit/:id',(req,res)=>{
+    const { id } = req.params
+    console.log(id)
+    CategoryModel.findById(id)
+    .then(category=>{
+        res.render("admin/category_add_edit",{
+            userInfo:req.userInfo,
+            category
+        })
+    })
+    .catch(err=>{
+        res.render("admin/err",{
+            message:"数据库操作失败",
+            url:'/category'
+        })
+    })
+})
+//处理编辑分类
+router.post("/edit",(req,res)=>{
+    let { name,order,id } = req.body
+    if(!order){
+        order=0
+    }
+    CategoryModel.findById(id)
+    .then(category=>{
+        if(category.name==name && category.order==order){
+            res.render("admin/err",{
+                message:"请更新后再提交"
+            })
+        }else{
+            CategoryModel.findOne({name:name,_id:{$ne:id}})
+            .then(category=>{
+                if(category){
+                    res.render("admin/err",{
+                        message:"分类名已经存在"
+                    })  
+                }else{
+                    CategoryModel.updateOne({_id:id},{name,order})
+                    .then(result=>{
+                        res.render("admin/success",{
+                            message:"新增分类成功",
+                            url:'/category'
+                        })
+                    })
+                    .catch(err=>{
+                        res.render("admin/err",{
+                            message:"数据库操作失败"
+                        })
+                    })
+                }
+            })
+            .catch(err=>{
+                res.render("admin/err",{
+                    message:"数据库操作失败"
+                })
+            })
+        }
+    })
+    .catch(err=>{
+        res.render("admin/err",{
+            message:"数据库操作失败"
+        })
+    })
+})
+
+// //处理删除操作
+// router.get('/delete/:id',(req,res)=>{
+//     const { id } = req.params
+//     CategoryModel.deleteOne({_id:id})
+//     .then(result=>{
+//         res.render("admin/success",{
+//             message:"删除分类成功",
+//             url:"/category"
+//         })
+//     })
+//     .catch(err=>{
+//         res.render("admin/err",{
+//             message:"数据库操作失败",
+//             url:"category"
+//         })
+//     })
+// })
+
+
+
+
+
+
 
 
 module.exports = router

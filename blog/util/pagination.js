@@ -22,6 +22,9 @@ async function pagination(options){
 	if(page>pages){
 		page=pages
 	}
+	if(page == 0){
+		page=1
+	}
 	const list = [];
 	for(let i =1;i<=pages;i++){
 		list.push(i)
