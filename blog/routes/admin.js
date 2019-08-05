@@ -6,6 +6,7 @@
 */
 const express = require('express')
 const UserModel = require('../models/user.js')
+const pagination = require('../util/pagination.js')
 
 const router = express.Router()
 //权限验证
@@ -26,6 +27,7 @@ router.get('/', (req, res) => {
 //显示用户列表
 router.get('/users', (req, res) => {
 	let page = req.query.page
+	/*
 	const limit = 2
 	page = parseInt(page)
 	if(isNaN(page)){
@@ -45,7 +47,7 @@ router.get('/users', (req, res) => {
 			list.push(i)
 		}
 		const skip=(page-1)*limit
-		UserModel.find({})
+		UserModel.find({},"-password -__v")
 		.skip(skip)
 		.limit(limit)
 		.then(users=>{
@@ -60,6 +62,28 @@ router.get('/users', (req, res) => {
             console.log('get users err:',err) 
         })
 	})
+	*/
+    const options = {
+        page:req.query.page,
+        model:UserModel,
+        query:{},
+        sort:{_id:-1},
+        projection:"-password -__v"
+    }
+    pagination(options)
+    .then(data=>{
+        res.render("admin/user_list",{
+            userInfo:req.userInfo,
+            users:data.docs,
+            page:data.page,
+            list:data.list,
+            pages:data.pages,
+            url:"/admin/users"
+        })       
+    })
+    .catch(err=>{
+       console.log('get users err:',err) 
+    })
 
 })
 

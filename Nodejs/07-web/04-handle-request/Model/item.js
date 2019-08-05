@@ -15,6 +15,9 @@ async function get(){
 	return arr
 }
 async function add(task){
+<<<<<<< HEAD
+
+=======
     //1.读取数据文件
     const data = await readFile(dataPath)
     //2.将读取文件的字符串转换为数组
@@ -41,10 +44,15 @@ async function del(id){
     })
     //4.把新数组转换为字符串,把字符串覆盖写入到数据文件
     await writeFile(dataPath,JSON.stringify(newArr))
+>>>>>>> 677407ee90955cfbfc981d1d326999c0201d940b
 }
 
 module.exports = {
 	get,
+<<<<<<< HEAD
+	add
+=======
 	add,
 	del
+>>>>>>> 677407ee90955cfbfc981d1d326999c0201d940b
 }

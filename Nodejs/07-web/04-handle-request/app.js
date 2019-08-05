@@ -3,7 +3,11 @@ const path = require('path');
 const url = require('url');
 const fs = require('fs');
 const mime = require('./mime.json')
+<<<<<<< HEAD
+const { get,add } = require('./Model/item.js')
+=======
 const { get,add,del } = require('./Model/item.js')
+>>>>>>> 677407ee90955cfbfc981d1d326999c0201d940b
 const swig = require('swig')
 const querystring = require('querystring')
 
@@ -44,6 +48,20 @@ const server = http.createServer((req,res)=>{
 	}
 	//添加路由
 	else if(pathname == '/add'){
+<<<<<<< HEAD
+		//1.获取参数
+		let body=""
+		req.on('data',(chunk)=>{
+			body+=chunk
+		})
+		req.on('end',()=>{
+			const query=querystring.parse(body)
+			res.end(JSON.stringify({
+				code:0
+			}))
+		})
+		
+=======
 		let body="";
 		//1.获取参数
 		req.on('data',(chunk)=>{
@@ -89,6 +107,7 @@ const server = http.createServer((req,res)=>{
 				message:'删除失败'
 			}))
 		})
+>>>>>>> 677407ee90955cfbfc981d1d326999c0201d940b
 	}
 	/*
 	 else if(pathname == "/del"){//get

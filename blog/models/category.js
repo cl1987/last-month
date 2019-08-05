@@ -8,21 +8,16 @@ const mongoose = require('mongoose')
 
 //1.定义Schema
 const CategorySchema = new mongoose.Schema({
-    //...............................................做到这里了
     name:{
         type:String,
-        required:[true,"姓名必须输入"],
+        required:[true,"分类必须输入"],
     },
-    password:{
-        type:String,
-        required:[true,"密码必须输入"]
-    },
-    isAdmin:{
-        type:Boolean,
-        default:false
+    order:{
+        type:Number,
+        default:0
     }
 })
 
-const UserModel = mongoose.model('user', UserSchema)
+const CategoryModel = mongoose.model('category', CategorySchema)
 
-module.exports = UserModel
+module.exports = CategoryModel
