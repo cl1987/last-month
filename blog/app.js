@@ -18,6 +18,7 @@ const port = 3000
 
 //1.连接数据库
 mongoose.connect('mongodb://localhost/blog', { useNewUrlParser: true })
+mongoose.set('useFindAndModify',false)
 
 //获取db对象
 const db = mongoose.connection
@@ -122,6 +123,7 @@ app.use("/user",require('./routes/user.js'))
 app.use("/admin",require('./routes/admin.js')) 
 app.use("/category",require('./routes/category.js'))
 app.use("/article",require('./routes/article.js'))
+app.use("/comment",require('./routes/comment.js'))
 //————————————————————————————路由设置结束----------------------
 
 app.listen(port, () => console.log(`app listening on port ${port}!`))
