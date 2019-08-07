@@ -45,7 +45,7 @@ router.get('/', (req, res) => {
 })
 //显示添加分类的页面
 router.get('/add', (req, res) => {
-    res.render("admin/category_add",{
+    res.render("admin/category_add_edit",{
         userInfo:req.userInfo
     })
 })
@@ -156,22 +156,22 @@ router.post("/edit",(req,res)=>{
 })
 
 // //处理删除操作
-// router.get('/delete/:id',(req,res)=>{
-//     const { id } = req.params
-//     CategoryModel.deleteOne({_id:id})
-//     .then(result=>{
-//         res.render("admin/success",{
-//             message:"删除分类成功",
-//             url:"/category"
-//         })
-//     })
-//     .catch(err=>{
-//         res.render("admin/err",{
-//             message:"数据库操作失败",
-//             url:"category"
-//         })
-//     })
-// })
+router.get('/delete/:id',(req,res)=>{
+    const { id } = req.params
+    CategoryModel.deleteOne({_id:id})
+    .then(result=>{
+        res.render("admin/success",{
+            message:"删除分类成功",
+            url:"/category"
+        })
+    })
+    .catch(err=>{
+        res.render("admin/err",{
+            message:"数据库操作失败",
+            url:"category"
+        })
+    })
+})
 
 
 
