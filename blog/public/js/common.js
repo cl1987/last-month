@@ -182,6 +182,20 @@
                 </li>`
         return html
     }
+    function buildCommentHtml(comments){
+        var html = ''
+        comments.forEach(function(comment){
+            var createdTime = moment(comment.createdAt).format('YYYY-MM-DD HH:mm:ss')
+            html +=`
+                <div class="panel panel-default">
+                        <div class="panel-heading">${ comment.user.username } 发表于 ${ createdTime } </div>
+                        <div class="panel-body">
+                          ${ comment.content }
+                        </div>
+                      </div>`
+        })    
+        return html;
+    }
 
     $articlePage.on('get-data',function(ev,data){
          // console.log(data.docs)
@@ -198,6 +212,22 @@
     })
     $articlePage.pagination({
         url:'/articles'    
+    })
+    //5.处理评论列表的分页功能
+    var $commentPage = $('#comment-page')
+    $commentPage.on('get-data',function(ev,data){
+        //构建评论html
+        $('#comment-wrap').html(buildCommentHtml(data.docs))
+        //构建分页器html
+        $pagination = $commentPage.find('.pagination')
+        if(data.pages>1){
+            $pagination.html(buildPaginationHtml(data.page,data.pages,data.list))
+        }else{
+            $pagination.html('')
+        }
+    })
+    $commentPage.pagination({
+        url:'/comment/list'    
     })
 
 })(jQuery);

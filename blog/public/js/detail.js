@@ -22,7 +22,13 @@
 			}
 		})
 		.done(function(result){
-			console.log(result)
+			if(result.status == 0){
+                $('#comment-content').val('')
+                console.log(result.data)
+                $('#comment-page').trigger('get-data',result.data)
+            }else{
+                alert(result.message)
+            }
 		})
 		.fail(function(err){
 			alert('评论失败，请稍后再试')
