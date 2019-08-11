@@ -13,6 +13,7 @@ const port = 3000
 
 //1.连接数据库
 mongoose.connect('mongodb://localhost/blog', { useNewUrlParser: true })
+mongoose.set('useFindAndModify',false)
 
 //获取db对象
 const db = mongoose.connection
@@ -28,7 +29,7 @@ db.once('open', () => {
 })
 
 //静态资源处理
-//所有静态资源回去请求 public目录下面的资源
+//所有静态资源会去请求 public目录下面的资源
 //请求的是一个目录 去找目录下面的index.html 
 //如果找不到就会继续向下执行
 //以/lib/bootstrap-3.3.7-dist/css/bootstrap.min.css请求为例
@@ -114,8 +115,11 @@ app.use((req,res,next)=>{
 
 app.use("/",require('./routes/index.js'))
 app.use("/user",require('./routes/user.js'))
-app.use("/admin",require('./routes/admin.js'))
+app.use("/admin",require('./routes/admin.js')) 
+app.use("/home",require('./routes/home.js')) 
 app.use("/category",require('./routes/category.js'))
+app.use("/article",require('./routes/article.js'))
+app.use("/comment",require('./routes/comment.js'))
 //————————————————————————————路由设置结束----------------------
 
 app.listen(port, () => console.log(`app listening on port ${port}!`))
