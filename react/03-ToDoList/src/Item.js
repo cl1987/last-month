@@ -5,6 +5,10 @@ class Item extends Component{
 	constructor(props){
 		super(props)
 	}
+	componentWillUnmount(){
+		//通常做一些清理工作比如，清除定时器
+		console.log('componentWillUnmount()')
+	}
 	render(){
 		// console.log('Item.js...render')
 		const { handleDelete,task }=this.props

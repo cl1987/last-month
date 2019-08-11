@@ -5,6 +5,7 @@ import './App.css'
 
 class App extends Component{
 	constructor(props){
+		console.log('constructor(props)')
 		super(props);
 		this.state={
 			list:['吃饭','睡觉','敲代码','跑步'],
@@ -13,7 +14,36 @@ class App extends Component{
 		this.handleChange = this.handleChange.bind(this)
 		this.handleClick = this.handleClick.bind(this)
 	}
-
+	static getDerivedStateFromProps(props, state){
+		//根据props来修改state
+		console.log('getDerivedStateFromProps(props, state)',props,state)
+		//用返回的对象和当前的state合并
+		/*
+		return {
+			task:"hello"
+		}
+		*/
+		return null
+	}
+	shouldComponentUpdate(nextProps, nextState){
+		//根据当前新的props或者新的state来决定到底需不需要更新DOM
+		console.log('shouldComponentUpdate(nextProps, nextState)',nextProps,nextState)
+		return true
+	}
+	getSnapshotBeforeUpdate(prevProps, prevState){
+		//保证真实DOM更新前的某些数据 
+		console.log('getSnapshotBeforeUpdate(prevProps, prevState)',prevProps, prevState)
+		return 123
+	}
+	//真实的更新
+	componentDidUpdate(prevProps, prevState,snapshot){
+		//获取真实DOM更新前的某些数据 
+		console.log('componentDidUpdate(prevProps, prevState,snapshot)',prevProps, prevState,snapshot)
+	}
+	componentDidMount(){
+		//一般在这里发送Ajax
+		console.log('App componentDidMount()')
+	}
 	handleClick(){
 		this.setState((preState)=>({
 			list:[...preState.list,preState.task],
@@ -43,7 +73,7 @@ class App extends Component{
 		})
 	}
 	render(){
-		// console.log('App.js...render')
+		console.log('App...render')
 		return (
 			<div className="App">		
 				<input
