@@ -1,9 +1,4 @@
-/*
-* @Author: TomChen
-* @Date:   2019-07-31 16:03:32
-* @Last Modified by:   TomChen
-* @Last Modified time: 2019-08-02 17:08:39
-*/
+
 const express = require('express')
 const swig = require('swig')
 const mongoose = require('mongoose')
