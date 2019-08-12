@@ -1,6 +1,6 @@
 
 import React,{ Component } from 'react'
-import { DatePicker,Button } from 'antd';
+import { Button,Input,Col,Row,List } from 'antd';
 import Item from './Item.js'
 
 import "./App.css"
@@ -10,7 +10,7 @@ class App extends Component{
     constructor(props){
         super(props)
         this.state = {
-            list:["吃饭"],
+            list:["吃饭","睡觉"],
             task:''
         }
         this.handleChange = this.handleChange.bind(this)
@@ -23,7 +23,7 @@ class App extends Component{
         }))
     }
     handleChange(ev){
-      const task = this.input.value
+      const task = ev.target.value
       this.setState(()=>({
          task:task
       }))
@@ -43,20 +43,40 @@ class App extends Component{
     render(){
         return( 
         <div className="App">
-            <input 
-                onChange={this.handleChange} 
-                value={this.state.task}
-                ref={(input)=>{this.input = input}} 
+            <Row>
+                <Col span={16}>
+                    <Input 
+                        onChange={this.handleChange} 
+                        value={this.state.task}  
+                    />
+                </Col>
+                <Col span={8}>
+                    <Button
+                        type="primary"
+                        onClick={this.handleAdd}
+                    >Primary
+                    </Button>
+                </Col>
+            </Row>
+            <List
+                style={{ marginTop: 20 }}
+                bordered
+                dataSource={this.state.list}
+                renderItem={(item,index) => (
+                    <List.Item
+                        onClick={this.handleDel.bind(this,index)} 
+                    >
+                        {item}
+                    </List.Item>
+                )}
             />
-            <button onClick={this.handleAdd}>提交</button>
+            {/*
             <ul ref={(ul)=>{this.ul = ul}}>
                 {
                     this.getItems()
                 }
             </ul>
-            <DatePicker />
-            <Button type="primary">Primary</Button>
-
+            */}
         </div> 
         )             
     }
