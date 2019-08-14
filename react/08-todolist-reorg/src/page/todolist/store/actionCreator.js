@@ -2,26 +2,21 @@
 
 import axios from 'axios'
 
-import{
-	ADD_ITEM,
-	CHANGE_ITEM,
-	DEL_ITEM,
-	LOAD_DATA
-} from './actionsTypes.js'
+import * as types from './actionsTypes.js'
 
 export const getAddAction=()=>({
-		type:ADD_ITEM
+		type:types.ADD_ITEM
 })
 export const getChangeAction=(task)=>({
-		type:CHANGE_ITEM,
+		type:types.CHANGE_ITEM,
 		payload:task
 })
 export const getDelAction=(index)=>({
-		type:DEL_ITEM,
+		type:types.DEL_ITEM,
 		payload:index
 })
 const getLoadInitDataAction = (payload)=>({
-    type:LOAD_DATA,
+    type:types.LOAD_DATA,
     payload
 })
 export const getRequestInitDataAction = ()=>{

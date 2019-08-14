@@ -5,7 +5,7 @@ import{
     LOAD_DATA
 } from './actionsTypes.js'
 const defaultState={
-	list:[],//"昨日星空","打上火花"
+	list:["昨日星空","打上火花"],
     task:''
 }
 
