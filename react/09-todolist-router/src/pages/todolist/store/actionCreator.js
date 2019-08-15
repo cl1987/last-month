@@ -28,15 +28,20 @@ const getLoadInitDataAction = (payload)=>({
     payload
 })
 
-export const getRequestInitDataAction = ()=>{
+export const getLoginAction = (values)=>{
     return (dispatch,getState)=>{
-        axios.get('http://127.0.0.1:3000')
+        values.role= 'admin'
+        axios({
+            method:'post',
+            url:'http://127.0.0.1:3000/sessions/users',
+            data:values
+        })
         .then(result=>{
-            dispatch(getLoadInitDataAction(result.data))
+            console.log(result)
         })
         .catch(err=>{
             console.log(err)
-        })        
+        })
     }
 }
 
