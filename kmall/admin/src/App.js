@@ -11,6 +11,7 @@ import {
 
 import Login from 'pages/login'
 import Home from 'pages/home'
+import User from 'pages/User'
 import Err from 'common/err'
 
 import { getUsername } from 'util'
@@ -34,7 +35,7 @@ class App extends Component {
                 <div className="App">
                     <Switch>
                         <ProtectRoute exact path="/" component={Home} />
-                        <ProtectRoute exact path="/user" component={Home} />
+                        <ProtectRoute exact path="/user" component={User} />
                         <LoginRoute path="/login" component={Login} />
                         <Route component={Err} />
                     </Switch>

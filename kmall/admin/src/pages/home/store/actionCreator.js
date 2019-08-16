@@ -5,40 +5,31 @@ import * as types  from './actionTypes.js'
 import { message } from 'antd'
 import { saveUsername } from 'util'
 
-const getLoginReqestStartAction = ()=>({
-    type:types.LOGIN_REQEST_START,
-})
-const getLoginReqestDoneAction = ()=>({
-    type:types.LOGIN_REQEST_DONE,
+const getSetCountAction = (payload)=>({
+    type:types.SET_COUNT,
+    payload
 })
 
-export const getLoginAction = (values)=>{
+
+export const getCountAction = (values)=>{
     return (dispatch,getState)=>{
-        dispatch(getLoginReqestStartAction())
-        values.role = 'admin'
         axios({
-            method: 'post',
-            url:'http://127.0.0.1:3000/sessions/users',
-            data:values
+            method: 'get',
+            url:'http://127.0.0.1:3000/counts/',
+            withCredentials:true
         })
         .then(result=>{
             // console.log(result)
             const data  = result.data
             if(data.code == 0){
-                //1.在前端保存登录信息
-                saveUsername(data.data.username)
-                //2.跳转到后台首页
-                window.location.href = "/"
+               dispatch(getSetCountAction(data.data))
             }else{
-                message.error(data.message)
+                message.error('网络错误,请稍后再试')
             }
         })
         .catch(err=>{
             message.error('网络错误,请稍后再试')
-        })
-        .finally(()=>{
-            dispatch(getLoginReqestDoneAction())
-        })       
+        })      
     }
 }
 
