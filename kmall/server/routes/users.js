@@ -14,44 +14,44 @@ const hmac = require('../util/hmac.js')
 
 const router = Router();
 
-router.get('/init',(req,res)=>{
-	const users = []
-	for(let i =0;i<500;i++){
-		users.push({
-			username:'test'+i,
-			password:hmac('test'+i),
-			email:'test'+i+'@kuazhu.com',
-			phone:i+232+i+12+'q'
-		})
-	}
-	UserModel.insertMany(users)
-	.then(result=>{
-		res.send('ok')
-	})
-	.catch(err=>{
-		res.end('err')
-	})
-})
+// router.get('/init',(req,res)=>{
+// 	const users = []
+// 	for(let i =0;i<500;i++){
+// 		users.push({
+// 			username:'test'+i,
+// 			password:hmac('test'+i),
+// 			email:'test'+i+'@kuazhu.com',
+// 			phone:i+232+i+12+'q'
+// 		})
+// 	}
+// 	UserModel.insertMany(users)
+// 	.then(result=>{
+// 		res.send('ok')
+// 	})
+// 	.catch(err=>{
+// 		res.end('err')
+// 	})
+// })
 
 
 
 
 
-/*
-router.get('/init',(req,res)=>{
-	UserModel.insertMany({
-		username:'admin',
-		password:hmac('admin'),
-		isAdmin:true
-	})
-	.then(result=>{
-		res.send('ok')
-	})
-	.catch(err=>{
-		res.end('err')
-	})
-})
-*/
+
+// router.get('/init',(req,res)=>{
+// 	UserModel.insertMany({
+// 		username:'admin',
+// 		password:hmac('admin'),
+// 		isAdmin:true
+// 	})
+// 	.then(result=>{
+// 		res.send('ok')
+// 	})
+// 	.catch(err=>{
+// 		res.end('err')
+// 	})
+// })
+// 
 
 
 

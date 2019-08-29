@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import './App.css'
-
 import { 
     BrowserRouter as Router, 
     Route, 
@@ -11,7 +10,11 @@ import {
 
 import Login from 'pages/login'
 import Home from 'pages/home'
-import User from 'pages/User'
+import User from 'pages/user'
+import Category from 'pages/category'
+import Product from 'pages/product'
+import Ad from 'pages/ad'
+import Order from 'pages/order'
 import Err from 'common/err'
 
 import { getUsername } from 'util'
@@ -31,11 +34,15 @@ class App extends Component {
             }}
         />)
         return (
-            <Router>
+            <Router forceRefresh={true}>
                 <div className="App">
                     <Switch>
                         <ProtectRoute exact path="/" component={Home} />
                         <ProtectRoute exact path="/user" component={User} />
+                        <ProtectRoute  path="/category" component={Category} />
+                        <ProtectRoute  path="/ad" component={Ad} />
+                        <ProtectRoute  path="/order" component={Order}  />
+                        <ProtectRoute  path="/product" component={Product}  />
                         <LoginRoute path="/login" component={Login} />
                         <Route component={Err} />
                     </Switch>

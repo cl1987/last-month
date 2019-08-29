@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Create rules</title>
+</head>
+<body>
+	<div id="box">
+		<!-- <h1 ref="h1">VUE</h1> -->
+		<h2>{{message}}</h2>
+	</div>
+</body>
+<script src="js/vue.js"></script>
+<script>
+	var vm = new Vue({
+		el:'#box',
+		data:{
+			message:"hello world"
+		}
+	})
+	console.log(vm)
+	console.log(vm.$el)
+	console.log(vm.$el == document.getElementById('box'))
+    // console.log(vm.$refs.h1)
+    console.log("1111111111::::::",vm.$data)
+
+
+    vm.$watch('message',function(){
+    	console.log('message has been changed')
+    })
+    vm.$destroy()
+</script>
+</html>

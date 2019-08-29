@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Create rules</title>
+</head>
+<style>
+	*{
+		margin: 0;
+		padding: 0;
+	}
+	.active{
+		background-color: yellow;
+	}
+	.error{
+		color:red;
+	}
+	p{
+		margin-top: 100px;
+	}
+</style>
+<body>
+	<div id="app">
+		<p>我是文字</p>
+		<p class="active error">class="active error"</p>
+		<p :class="{active:true,error:true}">:class="{active:true,error:true}"</p>
+	</div>
+</body>
+<script src="js/vue.js"></script>
+<script>
+var vm = new Vue({
+    el: '#app',
+    data: {
+        isActive: true,
+        hasError: false,
+        objClass: {
+            active: true,
+            error: false
+        },
+        arrClass:['active','error']
+    }
+})
+</script>
+</html>

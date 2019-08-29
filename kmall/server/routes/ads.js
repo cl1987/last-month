@@ -28,7 +28,7 @@ const router = Router();
 //获取位置的广告
 router.get("/positionAds",(req,res)=>{
 	const position = req.query.position || 1
-	AdModel.find({position:position},"-createdAt -updatedAt -__v")
+	AdModel.find({position:position,isShow:1},"-createdAt -updatedAt -__v")
 	.sort({order:-1})
 	.then((ads)=>{
 		res.json({
@@ -120,7 +120,12 @@ router.get('/detail',(req,res)=>{
 //处理图片
 router.post("/image",upload.single('file'),(req,res)=>{
 	const filePath = 'http://127.0.0.1:3000/ad-images/'+req.file.filename;
-	res.send(filePath);
+	res.send({
+    	"name": req.file.originalname,
+    	"status": "done",
+    	"url": filePath,
+    	"thumbUrl": filePath
+	});
 	
 })
 
