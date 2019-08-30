@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Create rules</title>
+</head>
+<body>
+	<div id="app">
+        <layout>
+            首页主要内容
+        </layout>
+    </div>
+    <!--模版需要写在挂载组件的外面-->
+    <template id="layout">
+    	<div>
+    		<nav>顶部导航</nav>
+    		<slot>you understand me???</slot>
+    	</div>
+    </template>
+</body>
+<script src="js/vue.js"></script>
+<script>
+	Vue.component('layout',{
+		template:"#layout",
+	})
+
+	var vm = new Vue({
+		el:"#app",
+		data:{}
+	}) 
+</script>
+</html>

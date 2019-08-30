@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Create rules</title>
+</head>
+<body>
+	<div id="app">
+        <p>firstName:{{firstName}}</p>
+        <p>lastName:{{lastName}}</p>
+        <p>fullName:{{getFullName()}}</p>
+        <p>fullName:{{fullName}}</p>
+    </div>
+</body>
+<script src="js/vue.js"></script>
+<script>
+	var vm = new Vue({
+		el:'#app',
+		data:{
+			firstName:'LYC',
+			lastName:"LiuCheng"
+		},
+		methods:{
+			getFullName(){
+				return this.firstName+ '' + this.lastName
+			}
+		},
+		computed:{
+			fullName(){
+				return this.firstName + '' +this.lastName
+			}
+		}
+	})
+</script>
+</html>

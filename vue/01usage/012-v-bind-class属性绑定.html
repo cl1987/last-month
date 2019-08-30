@@ -24,6 +24,21 @@
 		<p>我是文字</p>
 		<p class="active error">class="active error"</p>
 		<p :class="{active:true,error:true}">:class="{active:true,error:true}"</p>
+
+
+		<p :class="{active:isActive,error:hasError}">:class="{active:isActive,error:hasError}"</p>
+
+
+		<p :class="['active','error']">:class="['active','error']"</p>
+
+		
+		<p :class="[isActive ? 'active' : '','error']">:class="[isActive ? 'active' : '','error']"</p>
+
+
+		<p :class='objClass'>:class='objClass'</p>
+
+
+		<p :class='arrClass'>:class='arrClass'</p>
 	</div>
 </body>
 <script src="js/vue.js"></script>
@@ -35,7 +50,7 @@ var vm = new Vue({
         hasError: false,
         objClass: {
             active: true,
-            error: false
+            error: true
         },
         arrClass:['active','error']
     }
