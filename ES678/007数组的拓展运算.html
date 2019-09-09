@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Create rules</title>
+</head>
+<body>
+	<ul>
+		<li>li1</li>
+		<li>li2</li>
+		<li>li3</li>
+		<li>li4</li>
+		<li>li5</li>
+		<li>li6</li>
+	</ul>
+</body>
+<script>
+	/*
+	函数调用时使用把数组转换为参数列表
+	function sum(n1,n2,n3){
+		return n1+n2+n3;
+	}
+	let arr=[1,2,3,5]
+	console.log(sum(...arr))
+	*/
+
+
+	/*
+	函数定义时使用把参数列表转换为数组
+	function sum(...arr){
+		console.log(arr)
+	}
+	sum(1,2,3,5)
+	sum();
+	*/
+
+	/*
+	//求数组的最大数
+	let arr=[1,2,3,5,36,88,99]
+	//ES5
+	console.log(Math.max.apply(null,arr));
+	//ES6
+	console.log(Math.max(...arr))
+	*/
+
+	//。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。 let arr1=[1,2,3,5,36,88,99]
+	//深拷贝数组1
+	/*
+	let arr2=arr1.concat();
+	arr2.push(16);
+	*/
+
+	//深拷贝数组2
+	/*
+	let arr2=arr1.slice();
+	arr2.push(6);
+	*/
+
+	//深拷贝数组3
+	/*
+	let arr2=[...arr1]
+	arr2.push(7)
+
+	console.log(arr1)
+	console.log(arr2)
+	*/
+
+	//把伪数组转换为真数组
+	var aLi=document.getElementsByTagName('li');
+	console.log(aLi)
+	let arr=[...aLi];
+	console.log(arr)
+</script>
+</html>

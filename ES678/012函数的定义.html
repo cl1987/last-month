@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Create rules</title>
+</head>
+<body>
+	函数声明（会被提升到最前边）
+	function show(){
+		console.log(11)
+	}
+	函数表达式（只有定义的提升，没有函数表达式的提升
+	var show = function(){
+        console.log('qqqqqqqqq',2)
+    }
+	
+</body>
+<script>
+	
+    // show()//11
+    //2.函数表达式
+    var show = function(){
+        console.log('qqqqqqqqq',2)
+    }
+    // 1.函数声明
+    // function show(){
+    //     console.log('wwwwwwww',1)
+    // }
+    show()//2
+</script>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Create rules</title>
+</head>
+<body>
+	
+</body>
+<script>
+	const getTimerPromise = delay=>new Promise((resolve,reject)=>{
+		setTimeout(()=>{
+			resolve("timer " + delay + " success data")
+		},delay)
+	})
+	const promise = [200,800,1200].map(delay=>getTimerPromise(delay))
+	// console.log(promise)
+
+	let p=new Promise((resolve,reject)=>{
+		setTimeout(()=>{
+			reject("timer "+ 100+"  error data")
+		},100)
+	})
+	promise.push(p);
+	const c= Promise.race(promise)
+
+	c
+	.then(data=>{
+		console.log(data)
+	})
+	.catch(err=>{
+		console.log(err)
+	})
+	/*
+	const getTimerPromise = (delay)=>new Promise((resolve,reject)=>{
+        setTimeout(()=>{
+            resolve('timer '+ delay + ' success data')
+        },delay)
+    })
+    const promises = [200,800,1200].map(delay=>getTimerPromise(delay))
+    const p1 = new Promise((resolve,reject)=>{
+        setTimeout(()=>{
+            reject('timer '+ 100 + ' error data')
+        },1000)
+    })
+    promises.push(p1)
+    console.log(promises)
+    const p = Promise.race(promises)
+    p
+    .then(data=>{
+        console.log(data)
+    })
+    .catch(err=>{
+        console.log(err)
+    })
+
+	*/
+</script>
+</html>

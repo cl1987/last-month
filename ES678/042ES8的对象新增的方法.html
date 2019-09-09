@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Create rules</title>
+</head>
+<body>
+	
+</body>
+<script>
+	const {
+		keys,
+		entries,
+		values,
+		getOwnPropertyDescriptors,
+		assign,
+		is
+	} = Object
+	Object.prototype.test="test"
+	const obj={
+		name:"tom",
+		age:18
+	}
+	Object.defineProperty(obj,"country",{
+		value:"China",
+		enumerable:false
+	})
+	console.log(keys(obj))
+	console.log(entries(obj))
+	console.log(values(obj))
+	console.log(getOwnPropertyDescriptors(obj));
+	let DEFAULTS = {
+		js:true,
+		interval:200
+	}
+	let options = {
+		js:false
+	}
+	let obj2 = assign({},DEFAULTS,options)
+	console.log(obj2)//{js:false,interval:200}
+
+	let arr1 = assign([],[11,22,33]);
+	console.log(arr1);//[11,22,33]
+
+	console.log("+0 === -0:",+0 === -0);//true
+	console.log("+0 === -0:",is(+0,-0));//false
+	console.log("NaN===NaN:",NaN===NaN)//false
+	console.log("is(NaN,NaN):",is(NaN,NaN));//true
+</script>
+</html>

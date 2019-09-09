@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	直接拷贝
+	用扩展运算符
+	循环遍历对象
+	写个程序（递归调用） true;
+	利用json对象转换字符串，再转换为json对象 true;
+	利用jquery上的方法$.extend true;
+</body>
+<script src="jquery/jquery-1.12.4.js"></script>
+<script>
+	/*
+	$(function(){
+		let obj={
+			name:"tom",
+			age:18,
+			friend:{
+				name:"jeciy"
+			},
+			pet:["dog","cat"]
+		}
+
+		let obj1= $.extend(true,{},obj);
+
+		obj1.name="kangkang";
+		obj1.friend.name="mike";
+		obj1.pet.push("tigger");
+
+		console.log(obj)
+		console.log(obj1)
+	})
+	*/
+
+	/*
+	let obj={
+			name:"tom",
+			age:18,
+			friend:{
+				name:"jeciy"
+			},
+			pet:["dog","cat"]
+		}
+	const obj1=JSON.parse(JSON.stringify(obj))
+	obj1.name="peter";
+	obj1.friend.name="kangkang";
+	obj1.pet.push("snippet")
+	*/
+
+	let obj={
+		name:"tom",
+		age:18,
+		friend:{
+			name:"jeciy"
+		},
+		pet:["dog","cat"]
+	}
+	const obj1=deepCopy(obj);
+	obj1.name="peter";
+	obj1.friend.name="kangkang";
+	obj1.pet.push("snippet")
+
+	function getDataType(data){
+		if(data instanceof Array){
+			return 'array'
+		}else if(data instanceof Object){
+			return 'object'
+		}
+	}
+	function deepCopy(data){
+		const type = getDataType(data);
+		let result
+		if(type == 'array'){
+			result=[];
+		}else if(type == 'object'){
+			result={};
+		}else{
+			return data//表示只有是数组或者对象的时候程序才会往下走 记着这里是return！！！！！！！
+		}
+
+		for(let key in data){
+			let val=data[key]
+			// console.log("11111111",val)
+			let valType =getDataType(val)
+			// console.log("222222",valType)
+			if( valType == "array" || valType == "object"){
+				result[key]=deepCopy(val)
+				// console.log(result[key])
+			}else{
+				result[key]=val
+				// console.log(result[key])
+			}
+		}
+		return result;
+	}
+	
+
+
+	// console.log(obj)
+	// console.log(obj1)
+</script>
+</html>
