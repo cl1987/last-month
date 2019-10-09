@@ -35,6 +35,7 @@ router.get('/', (req, res) => {
     getCommonData()
     .then(data=>{
         const { categories,topArticles }=data
+        console.log('categories',categories)
         ArticleModel.getPaginationArticlesData(req)
         .then(data=>{
             res.render("main/index",{

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Create rules</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		div{
+			width: 360px;
+			height: 415px;
+			margin: 100px auto;
+			border: 1px solid #000;
+			border-radius: 10px;
+			perspective: 500px;
+		}
+		div img{
+			width: 100%;
+			height: 100%;
+			border-radius: 10px;
+			transform-origin: left bottom;
+			transition: all 2s;
+		}
+		div:hover img{
+			transform: rotateY(90deg);
+		}
+	</style>
+</head>
+<body>
+	<div>
+		<img src="img/ad1.jpg" alt="">
+	</div>
+</body>
+</html>

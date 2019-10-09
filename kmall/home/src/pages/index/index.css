@@ -28,6 +28,10 @@
 }
 
 
+.swiper-slide img{
+    width: 100%;
+}
+
 .focus .swiper-container{
     height: 440px;
 }

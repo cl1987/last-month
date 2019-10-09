@@ -14,7 +14,9 @@ class Home extends React.Component {
     this.props.handleCount()
   }
   render() {
+
     const {usernum,productnum,ordernum}= this.props
+       console.log(usernum,productnum,ordernum)
     return (
       <div className="Home">
           <Layout>
