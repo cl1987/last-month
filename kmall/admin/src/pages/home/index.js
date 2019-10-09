@@ -14,7 +14,9 @@ class Home extends React.Component {
     this.props.handleCount()
   }
   render() {
+
     const {usernum,productnum,ordernum}= this.props
+       console.log(usernum,productnum,ordernum)
     return (
       <div className="Home">
           <Layout>
@@ -49,7 +51,7 @@ class Home extends React.Component {
 
 //映射属性到组件
 const mapStateToProps = (state) => ({
-    usernum:state.get('home').get('username'),
+    usernum:state.get('home').get('usernum'),
     productnum:state.get('home').get('productnum'),
     ordernum:state.get('home').get('ordernum')
 })

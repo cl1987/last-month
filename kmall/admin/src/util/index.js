@@ -1,4 +1,4 @@
-
+//将用户状态保存在前台localStorage里面
 export const saveUsername = (username)=>{
     window.localStorage.setItem('username',username)
 }

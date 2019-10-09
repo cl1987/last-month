@@ -9,7 +9,7 @@ const MongoStore = require("connect-mongo")(session)
 
 //app代表整个应用
 const app = express()
-const port = 3000
+const port = 3006
 
 //1.连接数据库
 mongoose.connect('mongodb://localhost/blog', { useNewUrlParser: true })
