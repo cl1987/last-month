@@ -3,13 +3,13 @@
   <swiper indicator-dots="true"
     autoplay="true" interval="5000" duration="500">
       <swiper-item>
-        <image src="/images/swiper/s1.jpg" class="slide-image"/>
+        <image src="https://picjumbo.com/wp-content/uploads/yummy-christmas-sweets-free-photo-1080x720.jpg" class="slide-image"/>
       </swiper-item>
       <swiper-item>
-        <image src="/images/swiper/s2.jpg" class="slide-image"/>
+        <image src="https://picjumbo.com/wp-content/uploads/puppy-christmas-1080x720.jpg" class="slide-image"/>
       </swiper-item>
       <swiper-item>
-        <image src="/images/swiper/s3.jpg" class="slide-image"/>
+        <image src="https://picjumbo.com/wp-content/uploads/macbook-pro-1080x720.jpg" class="slide-image"/>
       </swiper-item>        
   </swiper>
   <!--
@@ -23,9 +23,9 @@
       <image class='article-img' src='/images/article/a1.jpg'></image>
       <text class='article-desc'>我是描述</text>
       <view class='article-footer'>
-        <image class='article-footer-icon' src='/images/icon/star.png'></image>
+        <image class='article-footer-icon' src='/images/icon/star.jpg'></image>
         <text class='article-footer-text'>20</text>
-        <image class='article-footer-icon' src='/images/icon/view.png'></image>
+        <image class='article-footer-icon' src='/images/icon/view.jpg'></image>
         <text class='article-footer-text'>33</text> 
       </view>
     </view>
@@ -38,9 +38,9 @@
       <image class='article-img' src='/images/article/a1.jpg'></image>
       <text class='article-desc'>我是描述</text>
       <view class='article-footer'>
-        <image class='article-footer-icon' src='/images/icon/star.png'></image>
+        <image class='article-footer-icon' src='/images/icon/star.jpg'></image>
         <text class='article-footer-text'>20</text>
-        <image class='article-footer-icon' src='/images/icon/view.png'></image>
+        <image class='article-footer-icon' src='/images/icon/view.jpg'></image>
         <text class='article-footer-text'>33</text>        
       </view>
     </view>

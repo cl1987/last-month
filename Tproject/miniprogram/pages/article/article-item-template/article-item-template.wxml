@@ -8,9 +8,9 @@
     <image class='article-img' src='{{img}}'></image>
     <text class='article-desc'>{{desc}}</text>
     <view class='article-footer'>
-      <image class='article-footer-icon' src='/images/icon/star.png'></image>
+      <image class='article-footer-icon' src='/images/icon/star.jpg'></image>
       <text class='article-footer-text'>{{star}}</text>
-      <image class='article-footer-icon' src='/images/icon/view.png'></image>
+      <image class='article-footer-icon' src='/images/icon/view.jpg'></image>
       <text class='article-footer-text'>{{view}}</text> 
     </view>
   </view>

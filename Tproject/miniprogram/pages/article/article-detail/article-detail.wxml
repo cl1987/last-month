@@ -4,7 +4,7 @@
     <image 
       catchtap='tapMusic' 
       class='focus-music' 
-      src='{{ isPlaying ? "/images/icon/music-stop.png" : "/images/icon/music-start.png"}}'>
+      src='{{ isPlaying ? "/images/icon/music-stop.jpg" : "/images/icon/music-start.jpg"}}'>
     </image>
   </view>
   <view class='head'>
@@ -19,18 +19,18 @@
       catchtap='tapCollection' 
       wx:if="{{isCollected}}" 
       class='operation-collection' 
-      src='/images/icon/collection.png'>
+      src='/images/icon/collection.jpg'>
     </image>
     <image
       catchtap='tapCollection'  
       wx:else 
       class='operation-collection'
-      src='/images/icon/collection-none.png'>
+      src='/images/icon/collection-none.jpg'>
     </image>    
     <image 
       catchtap='tapShare' 
       class='operation-share' 
-      src='/images/icon/share.png'
+      src='/images/icon/share.jpg'
     >
     </image>
     <view class='operation-line'></view>    

@@ -4,33 +4,33 @@ var articles = [
     avatar: '/images/avatar/u1.jpg',
     date: '2019-10-10',
     time:'2天前',
-    title: '我是文章标题1',
-    img: '/images/article/a1.jpg',
-    desc: '我是描述1',
+    title: '金志文的歌曲',
+    img: 'http://www.qiucinews.com/ent/images/attachement/jpg/site2/20141103/00e06f12a37e15c15b6538.jpg',
+    desc: '金志文的描述',
     star: 30,
     view: 20,
-    content:'我是文章标题1的内容',
+    content:'金志文',
     music:{
-      src: 'http://oxoxtpvtn.bkt.clouddn.com/%E9%87%91%E5%BF%97%E6%96%87%20-%20%E4%B8%BA%E7%88%B1%E7%97%B4%E7%8B%82.mp3',
-      title: '为爱痴狂',
-      coverImgUrl: 'http://oxoxtpvtn.bkt.clouddn.com/%E4%B8%BA%E7%88%B1%E7%97%B4%E7%8B%82.jpg'
+      src: 'http://antiserver.kuwo.cn/anti.s?format=mp3|aac&rid=3189713&type=convert_url&response=res',
+      title: '我们结婚吧',
+      coverImgUrl: 'http://www.qiucinews.com/ent/images/attachement/jpg/site2/20141103/00e06f12a37e15c15b6538.jpg'
     }
   },
   {
     articleId: '1',
-    avatar: '/images/avatar/u2.jpg',
+    avatar: 'http://www.qiucinews.com/ent/images/attachement/jpg/site2/20141103/00e06f12a37e15c15b6538.jpg',
     date: '2019-10-10',
     time: '3天前',
-    title: '我是文章标题2',
-    img: '/images/article/a2.jpg',
-    desc: '我是描述2',
+    title: '广东雨神的歌曲',
+    img: 'http://p0.ifengimg.com/pmop/2018/0805/1EDCFA38BAAA9809AEC5FC396727C2C2FDC48AA8_size21_w640_h427.jpeg',
+    desc: '广东雨神的描述',
     star: 30,
     view: 20,
-    content: '我是文章标题2的内容',
+    content: '广东雨神',
     music: {
-      src: 'http://oxoxtpvtn.bkt.clouddn.com/%E6%9D%8E%E5%81%A5%E3%80%81%E5%AD%99%E4%BF%AA%20-%20%E9%A3%8E%E5%90%B9%E9%BA%A6%E6%B5%AA%20%28Live%29.mp3',
-      title: '风吹麦浪',
-      coverImgUrl:'http://oxoxtpvtn.bkt.clouddn.com/%E9%A3%8E%E5%90%B9%E9%BA%A6%E6%B5%AA.jpg'
+      src: ' http://sc1.111ttt.cn/2018/1/03/13/396131203208.mp3',
+      title: '广东爱情故事',
+      coverImgUrl:'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1570691254895&di=85df392e38967a242f398b65b1751855&imgtype=0&src=http%3A%2F%2F05imgmini.eastday.com%2Fmobile%2F20181101%2F20181101132346_572fca3e271eab9e7422a53769560281_1.jpeg'
     }    
   },
 ]

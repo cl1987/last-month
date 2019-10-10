@@ -1,9 +1,10 @@
 {
   "pages": [
-    "pages/movie/movie",
-    "pages/movie/movie-more/movie-more",
     "pages/index/index",
+    "pages/movie/movie",
     "pages/article/article",
+    "pages/movie/movie-more/movie-more",
+    
     "pages/article/article-detail/article-detail"
   ],
   "window": {
@@ -20,14 +21,14 @@
     "position":"bottom",
     "list": [
       {
-        "iconPath":"/images/icon/reading-none.png",
-        "selectedIconPath": "/images/icon/reading.png",
+        "iconPath":"/images/icon/11.jpg",
+        "selectedIconPath": "/images/icon/22.jpg",
         "pagePath": "pages/article/article",
         "text": "文章"
       },
       {
-        "iconPath": "/images/icon/movie-none.png",
-        "selectedIconPath": "/images/icon/movie.png",        
+        "iconPath": "/images/icon/33.jpg",
+        "selectedIconPath": "/images/icon/44.jpg",        
         "pagePath": "pages/movie/movie",
         "text": "电影"
       }

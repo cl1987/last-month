@@ -2,7 +2,7 @@
   <view class='star-wrap'>
     <block wx:for="{{stars}}" wx:key="index">
       <image 
-        src="{{item == 1 ? '/images/icon/star-active.png' : '/images/icon/star.png'}}">
+        src="{{item == 1 ? '/images/icon/star-active.jpg' : '/images/icon/star.jpg'}}">
       </image>
     </block>
     <text class='score'>{{score}}</text>

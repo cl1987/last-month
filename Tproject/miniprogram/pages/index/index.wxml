@@ -2,7 +2,7 @@
 <view class="container">
   <view class="userinfo">
       <image class="userinfo-avatar" src="/images/avatar/u1.jpg" mode="cover"></image>
-      <text class="userinfo-nickname">Tom</text>
+      <text class="userinfo-nickname">lyc</text>
   </view>
   <view class="usermotto" bindtap='tapMotto'>
     <!--
